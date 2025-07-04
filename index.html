@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPATELEENG - Quick Personal Loans</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4a6bff;
+            --secondary-color: #ff6b4a;
+            --dark-color: #2c3e50;
+            --light-color: #f8f9fa;
+            --prosper-blue: #003d71;
+            --prosper-green: #00a859;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1601597111158-2fceff292cdc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 8rem 0;
+            text-align: center;
+        }
+        
+        .feature-card {
+            border-radius: 10px;
+            transition: transform 0.3s;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .loan-calculator {
+            background-color: var(--light-color);
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .loan-option-card {
+            border-radius: 10px;
+            transition: all 0.3s;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            height: 100%;
+        }
+        
+        .loan-option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .loan-option-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--prosper-blue);
+        }
+        
+        .btn-prosper {
+            background-color: var(--prosper-green);
+            color: white;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-weight: 600;
+            border: none;
+        }
+        
+        .btn-prosper:hover {
+            background-color: #008749;
+            color: white;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+        }
+        
+        .navbar {
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="MPATELEENG" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#loan-options">Loan Options</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#apply">Apply</a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                    <li class="nav-item ms-2"><a href="signup.html" class="btn btn-prosper">Sign Up</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Image Background -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Financial Solutions Tailored For You</h1>
+            <p class="lead mb-5">Get the funding you need with competitive rates and flexible terms</p>
+            <a href="https://play.google.com/store/apps/details?id=com.mpateleeng.loans" class="btn btn-light btn-lg me-3">
+                <i class="fab fa-google-play"></i> Download App
+            </a>
+            <a href="#apply" class="btn btn-outline-light btn-lg">Apply Now</a>
+        </div>
+    </section>
+
+    <!-- Loan Options Section -->
+    <section id="loan-options" class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Our Loan Options</h2>
+                <p class="lead">Choose the financial solution that fits your needs</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-3">
+                    <div class="card loan-option-card">
+                        <div class="card-body text-center p-4">
+                            <div class="loan-option-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <h4>Personal Loans</h4>
+                            <p class="text-muted">Borrow R1,000 to R250,000 for any purpose with fixed rates and terms up to 5 years.</p>
+                            <a href="#personal-loans" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card loan-option-card">
+                        <div class="card-body text-center p-4">
+                            <div class="loan-option-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h4>Home Equity</h4>
+                            <p class="text-muted">Access your home's equity with competitive rates and flexible repayment options.</p>
+                            <a href="#home-equity" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card loan-option-card">
+                        <div class="card-body text-center p-4">
+                            <div class="loan-option-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <h4>Credit Cards</h4>
+                            <p class="text-muted">Low-interest credit cards with rewards and no annual fees.</p>
+                            <a href="#credit-cards" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card loan-option-card">
+                        <div class="card-body text-center p-4">
+                            <div class="loan-option-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h4>Investments & IRAs</h4>
+                            <p class="text-muted">Grow your wealth with our investment options and retirement accounts.</p>
+                            <a href="#investments" class="btn btn-outline-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card feature-card p-4 text-center">
+                        <i class="fas fa-bolt fa-3x mb-3 text-primary"></i>
+                        <h3>Fast Approval</h3>
+                        <p>Get loan decisions in minutes, not days</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card p-4 text-center">
+                        <i class="fas fa-percent fa-3x mb-3 text-primary"></i>
+                        <h3>Competitive Rates</h3>
+                        <p>Low interest rates tailored for you</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card p-4 text-center">
+                        <i class="fas fa-calendar-alt fa-3x mb-3 text-primary"></i>
+                        <h3>Flexible Terms</h3>
+                        <p>Repayment periods from 1 to 60 months</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">How MPATELEENG Works</h2>
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <div class="mb-3">
+                        <span class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px; font-size: 24px;">1</span>
+                    </div>
+                    <h4>Sign Up</h4>
+                    <p>Create your account in minutes</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="mb-3">
+                        <span class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px; font-size: 24px;">2</span>
+                    </div>
+                    <h4>Apply</h4>
+                    <p>Choose your loan amount and term</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="mb-3">
+                        <span class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px; font-size: 24px;">3</span>
+                    </div>
+                    <h4>Get Approved</h4>
+                    <p>Instant decision on your application</p>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="mb-3">
+                        <span class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center" style="width: 60px; height: 60px; font-size: 24px;">4</span>
+                    </div>
+                    <h4>Receive Funds</h4>
+                    <p>Money in your account same day</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Calculator -->
+    <section id="apply" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="loan-calculator">
+                        <h2 class="mb-4">Loan Calculator</h2>
+                        <div class="mb-3">
+                            <label for="loanAmount" class="form-label">Loan Amount (R)</label>
+                            <input type="range" class="form-range" min="1000" max="250000" step="1000" id="loanAmount">
+                            <div class="d-flex justify-content-between">
+                                <span>R1,000</span>
+                                <span>R250,000</span>
+                            </div>
+                            <input type="number" class="form-control mt-2" id="loanAmountInput" value="10000">
+                        </div>
+                        <div class="mb-3">
+                            <label for="loanTerm" class="form-label">Loan Term</label>
+                            <select class="form-select" id="loanTerm">
+                                <option value="12">12 Months</option>
+                                <option value="24">24 Months</option>
+                                <option value="36">36 Months</option>
+                                <option value="48">48 Months</option>
+                                <option value="60">60 Months</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="creditScore" class="form-label">Credit Score</label>
+                            <select class="form-select" id="creditScore">
+                                <option value="excellent">Excellent (720+)</option>
+                                <option value="good">Good (680-719)</option>
+                                <option value="fair">Fair (640-679)</option>
+                                <option value="poor">Poor (639 or below)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Estimated Repayment</label>
+                            <div class="p-3 bg-white rounded">
+                                <h4 id="repaymentAmount">R11,200</h4>
+                                <small class="text-muted">Monthly: R933.33 at 7.95% APR</small>
+                            </div>
+                        </div>
+                        <a href="apply.html" class="btn btn-prosper w-100">Apply Now</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <h2>Why Choose MPATELEENG?</h2>
+                    <ul class="list-unstyled">
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> No hidden fees</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Secure online application</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> 24/7 customer support</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Early repayment discounts</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> No paperwork required</li>
+                        <li class="mb-3"><i class="fas fa-check-circle text-primary me-2"></i> Competitive rates starting at 7.95% APR</li>
+                    </ul>
+                    <div class="mt-4">
+                        <img src="mobile-app-screenshot.png" alt="MPATELEENG App" class="img-fluid rounded shadow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Customers Say</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 h-100">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="card-text">"MPATELEENG helped me when I needed urgent funds for my business. The process was so simple and fast!"</p>
+                            <div class="d-flex align-items-center mt-auto">
+                                <img src="user1.jpg" alt="User" class="rounded-circle me-3" width="50">
+                                <div>
+                                    <h6 class="mb-0">Thabo M.</h6>
+                                    <small class="text-muted">Johannesburg</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 h-100">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            </div>
+                            <p class="card-text">"I was skeptical at first, but the app made everything so easy. Got approved in 10 minutes!"</p>
+                            <div class="d-flex align-items-center mt-auto">
+                                <img src="user2.jpg" alt="User" class="rounded-circle me-3" width="50">
+                                <div>
+                                    <h6 class="mb-0">Lerato K.</h6>
+                                    <small class="text-muted">Cape Town</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 h-100">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star-half-alt text-warning"></i>
+                            </div>
+                            <p class="card-text">"The repayment options are flexible and the customer service team is very helpful."</p>
+                            <div class="d-flex align-items-center mt-auto">
+                                <img src="user3.jpg" alt="User" class="rounded-circle me-3" width="50">
+                                <div>
+                                    <h6 class="mb-0">David P.</h6>
+                                    <small class="text-muted">Durban</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5" style="background-color: var(--prosper-blue); color: white;">
+        <div class="container text-center">
+            <h2 class="mb-4">Ready to Get Started?</h2>
+            <p class="lead mb-4">Checking your rate won't affect your credit score</p>
+            <a href="#apply" class="btn btn-light btn-lg me-2">Check Your Rate</a>
+            <a href="https://play.google.com/store/apps/details?id=com.mpateleeng.loans" class="btn btn-outline-light btn-lg">
+                <i class="fab fa-google-play"></i> Download App
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="logo-white.png" alt="MP
