@@ -42,12 +42,51 @@
             background-color: var(--dark-color);
             color: white;
         }
+        
+        .file-upload-container {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .file-upload-container:hover {
+            border-color: var(--primary-color);
+            background-color: rgba(74, 107, 255, 0.05);
+        }
+        
+        .file-upload-container.active {
+            border-color: var(--primary-color);
+            background-color: rgba(74, 107, 255, 0.1);
+        }
+        
+        .file-preview {
+            max-width: 100px;
+            max-height: 100px;
+            margin-top: 10px;
+            display: none;
+        }
+        
+        .upload-status {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .progress {
+            height: 8px;
+            margin-top: 10px;
+            display: none;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
+            <div class="col-lg-10">
                 <div class="text-center mb-4">
                     <img src="logo.png" alt="MPATELEENG" height="60">
                     <h2 class="mt-3">Loan Application</h2>
@@ -95,8 +134,44 @@
                                 <option value="60">60 months</option>
                             </select>
                         </div>
+                        
+                        <!-- ID Document Upload -->
+                        <div class="mb-4">
+                            <label class="form-label">ID Document (PDF or Image)</label>
+                            <div class="file-upload-container" id="idUploadContainer">
+                                <input type="file" id="idDocument" accept=".pdf,.jpg,.jpeg,.png" style="display: none;">
+                                <i class="fas fa-id-card fa-3x mb-2"></i>
+                                <p>Click to upload ID document<br>
+                                <small>PDF, JPG, or PNG (max 5MB)</small></p>
+                                <img id="idPreview" class="file-preview">
+                                <div class="upload-status" id="idUploadStatus">No file selected</div>
+                                <div class="progress" id="idUploadProgress">
+                                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Bank Statement Upload -->
+                        <div class="mb-4">
+                            <label class="form-label">Bank Statement (PDF or Image)</label>
+                            <div class="file-upload-container" id="bankStatementUploadContainer">
+                                <input type="file" id="bankStatement" accept=".pdf,.jpg,.jpeg,.png" style="display: none;">
+                                <i class="fas fa-file-invoice-dollar fa-3x mb-2"></i>
+                                <p>Click to upload bank statement<br>
+                                <small>PDF, JPG, or PNG (max 5MB)</small></p>
+                                <img id="bankStatementPreview" class="file-preview">
+                                <div class="upload-status" id="bankStatementUploadStatus">No file selected</div>
+                                <div class="progress" id="bankStatementUploadProgress">
+                                    <div class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="d-grid">
-                            <button type="submit" class="btn btn-primary btn-lg">Apply for Loan</button>
+                            <button type="submit" class="btn btn-primary btn-lg" id="submitBtn">
+                                <span id="submitText">Apply for Loan</span>
+                                <span id="submitSpinner" class="spinner-border spinner-border-sm" role="status" aria-hidden="true" style="display: none;"></span>
+                            </button>
                         </div>
                     </form>
                 </div>
@@ -113,6 +188,7 @@
                                     <th>Cell Number</th>
                                     <th>Loan Amount</th>
                                     <th>Term</th>
+                                    <th>Documents</th>
                                     <th>Date</th>
                                     <th>Status</th>
                                 </tr>
@@ -130,6 +206,7 @@
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-database-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-storage-compat.js"></script>
     
     <script>
         // Your Firebase configuration
@@ -146,48 +223,178 @@
         // Initialize Firebase
         const app = firebase.initializeApp(firebaseConfig);
         const database = firebase.database();
+        const storage = firebase.storage();
 
         // Reference to the loan applications in the database
         const applicationsRef = database.ref('loanApplications');
 
+        // File upload variables
+        let idDocumentFile = null;
+        let bankStatementFile = null;
+        let idDocumentUrl = '';
+        let bankStatementUrl = '';
+
+        // Set up file upload containers
+        document.getElementById('idUploadContainer').addEventListener('click', function() {
+            document.getElementById('idDocument').click();
+        });
+
+        document.getElementById('bankStatementUploadContainer').addEventListener('click', function() {
+            document.getElementById('bankStatement').click();
+        });
+
+        // Handle ID document selection
+        document.getElementById('idDocument').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                idDocumentFile = file;
+                document.getElementById('idUploadStatus').textContent = `Selected: ${file.name}`;
+                document.getElementById('idUploadContainer').classList.add('active');
+                
+                // Show preview if image
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const preview = document.getElementById('idPreview');
+                        preview.src = e.target.result;
+                        preview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+
+        // Handle bank statement selection
+        document.getElementById('bankStatement').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                bankStatementFile = file;
+                document.getElementById('bankStatementUploadStatus').textContent = `Selected: ${file.name}`;
+                document.getElementById('bankStatementUploadContainer').classList.add('active');
+                
+                // Show preview if image
+                if (file.type.startsWith('image/')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const preview = document.getElementById('bankStatementPreview');
+                        preview.src = e.target.result;
+                        preview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            }
+        });
+
+        // Upload file to Firebase Storage
+        function uploadFile(file, path) {
+            return new Promise((resolve, reject) => {
+                const storageRef = storage.ref(path);
+                const uploadTask = storageRef.put(file);
+                
+                uploadTask.on('state_changed',
+                    (snapshot) => {
+                        // Progress monitoring
+                        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        if (path.includes('id_documents')) {
+                            document.getElementById('idUploadProgress').style.display = 'block';
+                            document.getElementById('idUploadProgress').querySelector('.progress-bar').style.width = progress + '%';
+                        } else {
+                            document.getElementById('bankStatementUploadProgress').style.display = 'block';
+                            document.getElementById('bankStatementUploadProgress').querySelector('.progress-bar').style.width = progress + '%';
+                        }
+                    },
+                    (error) => {
+                        reject(error);
+                    },
+                    () => {
+                        uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+                            resolve(downloadURL);
+                        });
+                    }
+                );
+            });
+        }
+
         // Form submission handler
-        document.getElementById('loanApplicationForm').addEventListener('submit', function(e) {
+        document.getElementById('loanApplicationForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            // Get form values
-            const idNumber = document.getElementById('idNumber').value;
-            const accountNumber = document.getElementById('accountNumber').value;
-            const firstName = document.getElementById('firstName').value;
-            const lastName = document.getElementById('lastName').value;
-            const cellNumber = document.getElementById('cellNumber').value;
-            const loanAmount = document.getElementById('loanAmount').value;
-            const loanTerm = document.getElementById('loanTerm').value;
-            const timestamp = new Date().toISOString();
-            const status = "Pending";
+            // Disable submit button and show spinner
+            const submitBtn = document.getElementById('submitBtn');
+            const submitText = document.getElementById('submitText');
+            const submitSpinner = document.getElementById('submitSpinner');
             
-            // Create application object
-            const application = {
-                idNumber,
-                accountNumber,
-                firstName,
-                lastName,
-                cellNumber,
-                loanAmount,
-                loanTerm,
-                timestamp,
-                status
-            };
+            submitBtn.disabled = true;
+            submitText.textContent = 'Processing...';
+            submitSpinner.style.display = 'inline-block';
             
-            // Push to Firebase
-            applicationsRef.push(application)
-                .then(() => {
-                    alert('Loan application submitted successfully!');
-                    document.getElementById('loanApplicationForm').reset();
-                })
-                .catch((error) => {
-                    console.error('Error submitting application: ', error);
-                    alert('Error submitting application. Please try again.');
-                });
+            try {
+                // Get form values
+                const idNumber = document.getElementById('idNumber').value;
+                const accountNumber = document.getElementById('accountNumber').value;
+                const firstName = document.getElementById('firstName').value;
+                const lastName = document.getElementById('lastName').value;
+                const cellNumber = document.getElementById('cellNumber').value;
+                const loanAmount = document.getElementById('loanAmount').value;
+                const loanTerm = document.getElementById('loanTerm').value;
+                const timestamp = new Date().toISOString();
+                const status = "Pending";
+                
+                // Upload files if they exist
+                if (idDocumentFile) {
+                    const idDocPath = `id_documents/${idNumber}_${Date.now()}_${idDocumentFile.name}`;
+                    idDocumentUrl = await uploadFile(idDocumentFile, idDocPath);
+                }
+                
+                if (bankStatementFile) {
+                    const bankStatementPath = `bank_statements/${idNumber}_${Date.now()}_${bankStatementFile.name}`;
+                    bankStatementUrl = await uploadFile(bankStatementFile, bankStatementPath);
+                }
+                
+                // Create application object
+                const application = {
+                    idNumber,
+                    accountNumber,
+                    firstName,
+                    lastName,
+                    cellNumber,
+                    loanAmount,
+                    loanTerm,
+                    idDocumentUrl: idDocumentUrl || '',
+                    bankStatementUrl: bankStatementUrl || '',
+                    timestamp,
+                    status
+                };
+                
+                // Push to Firebase
+                await applicationsRef.push(application);
+                
+                alert('Loan application submitted successfully!');
+                document.getElementById('loanApplicationForm').reset();
+                document.getElementById('idPreview').style.display = 'none';
+                document.getElementById('bankStatementPreview').style.display = 'none';
+                document.getElementById('idUploadContainer').classList.remove('active');
+                document.getElementById('bankStatementUploadContainer').classList.remove('active');
+                document.getElementById('idUploadStatus').textContent = 'No file selected';
+                document.getElementById('bankStatementUploadStatus').textContent = 'No file selected';
+                document.getElementById('idUploadProgress').style.display = 'none';
+                document.getElementById('bankStatementUploadProgress').style.display = 'none';
+                
+                // Reset file variables
+                idDocumentFile = null;
+                bankStatementFile = null;
+                idDocumentUrl = '';
+                bankStatementUrl = '';
+                
+            } catch (error) {
+                console.error('Error submitting application: ', error);
+                alert('Error submitting application. Please try again.');
+            } finally {
+                // Re-enable submit button
+                submitBtn.disabled = false;
+                submitText.textContent = 'Apply for Loan';
+                submitSpinner.style.display = 'none';
+            }
         });
 
         // Load and display applications from Firebase
@@ -204,12 +411,22 @@
                     const appDate = new Date(app.timestamp);
                     const formattedDate = appDate.toLocaleDateString() + ' ' + appDate.toLocaleTimeString();
                     
+                    // Create document links
+                    let documentsHtml = '';
+                    if (app.idDocumentUrl) {
+                        documentsHtml += `<a href="${app.idDocumentUrl}" target="_blank" class="me-2">ID</a>`;
+                    }
+                    if (app.bankStatementUrl) {
+                        documentsHtml += `<a href="${app.bankStatementUrl}" target="_blank">Bank</a>`;
+                    }
+                    
                     row.innerHTML = `
                         <td>${app.idNumber}</td>
                         <td>${app.firstName} ${app.lastName}</td>
                         <td>${app.cellNumber}</td>
                         <td>R${parseInt(app.loanAmount).toLocaleString()}</td>
                         <td>${app.loanTerm} months</td>
+                        <td>${documentsHtml || 'None'}</td>
                         <td>${formattedDate}</td>
                         <td><span class="badge bg-warning text-dark">${app.status}</span></td>
                     `;
@@ -217,7 +434,7 @@
                     tableBody.appendChild(row);
                 });
             } else {
-                tableBody.innerHTML = '<tr><td colspan="7" class="text-center">No loan applications found</td></tr>';
+                tableBody.innerHTML = '<tr><td colspan="8" class="text-center">No loan applications found</td></tr>';
             }
         });
     </script>
