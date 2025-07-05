@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPATELEENG Personal Loans - Borrow $2,000 to $50,000 | Fixed Rates</title>
+    <meta name="description" content="Get a personal loan from MPATELEENG with fixed rates and no prepayment penalties. Check your rate online in minutes.">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --mpateleeng-blue: #003d71;
+            --mpateleeng-light-blue: #0073ae;
+            --mpateleeng-green: #00a859;
+            --mpateleeng-dark: #333333;
+            --mpateleeng-light: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--mpateleeng-dark);
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-link {
+            color: var(--mpateleeng-dark);
+            font-weight: 600;
+        }
+        
+        .nav-link:hover {
+            color: var(--mpateleeng-light-blue);
+        }
+        
+        .btn-mpateleeng {
+            background-color: var(--mpateleeng-green);
+            color: white;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-weight: 600;
+        }
+        
+        .btn-mpateleeng:hover {
+            background-color: #008749;
+            color: white;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .loan-calculator {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .form-range::-webkit-slider-thumb {
+            background: var(--mpateleeng-green);
+        }
+        
+        .form-range::-moz-range-thumb {
+            background: var(--mpateleeng-green);
+        }
+        
+        .form-range::-ms-thumb {
+            background: var(--mpateleeng-green);
+        }
+        
+        .benefit-card {
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .benefit-icon {
+            color: var(--mpateleeng-green);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .process-icon {
+            background-color: var(--mpateleeng-blue);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+        
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--mpateleeng-green);
+        }
+        
+        .rate-box {
+            background-color: var(--mpateleeng-light);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .rate-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--mpateleeng-green);
+        }
+        
+        .purpose-image {
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        footer {
+            background-color: var(--mpateleeng-dark);
+            color: white;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="MPATELEENG" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="borrowDropdown">Borrow</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="personal-loans.html">Personal Loans</a></li>
+                            <li><a class="dropdown-item" href="credit-card.html">Credit Card</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="invest.html">Invest</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="login.html" class="nav-link me-3">Log In</a>
+                    <a href="signup.html" class="btn btn-mpateleeng">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Personal Loans Up To R250,000</h1>
+                    <p class="lead mb-4">Fixed rates, no prepayment penalties. Checking your rate won't affect your credit score.</p>
+                    <a href="#calculator" class="btn btn-light btn-lg me-2">Check Your Rate</a>
+                    <a href="#how-it-works" class="btn btn-outline-light btn-lg">How It Works</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Happy customer with loan approval" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Calculator -->
+    <section id="calculator" class="py-5 bg-light">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="loan-calculator">
+                        <h2 class="text-center mb-4">How much would you like to borrow?</h2>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="loanAmount" class="form-label">Loan Amount (R)</label>
+                                    <input type="range" class="form-range" min="2000" max="250000" step="1000" id="loanAmount" value="10000">
+                                    <div class="d-flex justify-content-between">
+                                        <span>R2,000</span>
+                                        <span>R250,000</span>
+                                    </div>
+                                    <input type="number" class="form-control mt-2" id="loanAmountInput" value="10000">
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label for="loanPurpose" class="form-label">Loan Purpose</label>
+                                    <select class="form-select" id="loanPurpose">
+                                        <option value="debt-consolidation">Debt Consolidation</option>
+                                        <option value="home-improvement">Home Improvement</option>
+                                        <option value="business">Business</option>
+                                        <option value="medical">Medical Expenses</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <label for="creditScore" class="form-label">Credit Score</label>
+                                    <select class="form-select" id="creditScore">
+                                        <option value="excellent">Excellent (720+)</option>
+                                        <option value="good">Good (680-719)</option>
+                                        <option value="fair">Fair (640-679)</option>
+                                        <option value="poor">Poor (639 or below)</option>
+                                        <option value="unknown">I don't know</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <label class="form-label">Estimated Rate</label>
+                                    <div class="p-3 bg-light rounded">
+                                        <h3 class="mb-0 text-success" id="estimatedRate">7.95% - 29.99%</h3>
+                                        <small class="text-muted">APR with autopay</small>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-mpateleeng btn-lg">Check Your Rate</button>
+                            </div>
+                            <div class="text-center mt-3">
+                                <small class="text-muted">Checking your rate won't affect your credit score</small>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Why Choose MPATELEENG Personal Loans?</h2>
+                <p class="lead">We make borrowing simple and straightforward</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="benefit-card p-4 text-center">
+                        <div class="benefit-icon">
+                            <i class="fas fa-percent"></i>
+                        </div>
+                        <h3>Fixed Rates</h3>
+                        <p>Your rate won't change over the life of your loan. No surprises.</p>
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1511&q=80" alt="Fixed rates" class="img-fluid rounded mt-3">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="benefit-card p-4 text-center">
+                        <div class="benefit-icon">
+                            <i class="fas fa-ban"></i>
+                        </div>
+                        <h3>No Prepayment Penalties</h3>
+                        <p>Pay off your loan early without any additional fees.</p>
+                        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="No penalties" class="img-fluid rounded mt-3">
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="benefit-card p-4 text-center">
+                        <div class="benefit-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Fast Funding</h3>
+                        <p>Get your money as soon as the next business day after approval.</p>
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Fast funding" class="img-fluid rounded mt-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how-it-works" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">How MPATELEENG Works</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="process-step">
+                        <div class="process-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80" alt="Check eligibility" class="img-fluid rounded mb-3" style="height: 150px; width: 100%; object-fit: cover;">
+                        <h4>Check Your Rate</h4>
+                        <p>Complete our simple form to check your rate with no impact to your credit score.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="process-step">
+                        <div class="process-icon">
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Get approved" class="img-fluid rounded mb-3" style="height: 150px; width: 100%; object-fit: cover;">
+                        <h4>Get Approved</h4>
+                        <p>Review your loan options and accept the offer that works for you.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="process-step">
+                        <div class="process-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Receive funds" class="img-fluid rounded mb-3" style="height: 150px; width: 100%; object-fit: cover;">
+                        <h4>Receive Funds</h4>
+                        <p>Get your money as soon as the next business day after approval.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Loan Purposes -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Common Loan Purposes</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Home improvement" class="purpose-image">
+                    <h3>Home Improvement</h3>
+                    <p>Finance renovations, repairs, or upgrades to your home with a fixed-rate personal loan.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" alt="Debt consolidation" class="purpose-image">
+                    <h3>Debt Consolidation</h3>
+                    <p>Combine multiple high-interest debts into one manageable monthly payment.</p>
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Business expenses" class="purpose-image">
+                    <h3>Business Expenses</h3>
+                    <p>Fund your business needs with a personal loan for equipment, inventory, or expansion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">What Our Members Say</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah" class="testimonial-img">
+                            </div>
+                            <div class="mb-3 text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="card-text">"MPATELEENG made the loan process so easy. I got a better rate than my bank offered and the funds were in my account the next day."</p>
+                            <div class="mt-auto">
+                                <h6 class="mb-0">Sarah M.</h6>
+                                <small class="text-muted">Johannesburg</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="text-center mb-4">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="David" class="testimonial-img">
+                            </div>
+                            <div class="mb-3 text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <p class="card-text">"I used MPATELEENG to consolidate my credit card debt and saved over R500 per month in interest payments. Highly recommend!"</p>
+           
