@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MPATELEENG Credit Card - No Annual Fee, Cash Back Rewards</title>
+    <meta name="description" content="The MPATELEENG Credit Card offers no annual fee, cash back rewards, and competitive rates. Apply today and get a decision in minutes.">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --prosper-blue: #003d71;
+            --prosper-light-blue: #0073ae;
+            --prosper-green: #00a859;
+            --prosper-dark: #333333;
+            --prosper-light: #f5f5f5;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--prosper-dark);
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .nav-link {
+            color: var(--prosper-dark);
+            font-weight: 600;
+        }
+        
+        .nav-link:hover {
+            color: var(--prosper-light-blue);
+        }
+        
+        .btn-mpateleeng {
+            background-color: var(--prosper-green);
+            color: white;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-weight: 600;
+        }
+        
+        .btn-mpateleeng:hover {
+            background-color: #008749;
+            color: white;
+        }
+        
+        .hero-section {
+            background: url('https://images.unsplash.com/photo-1607860108855-64acf2078ed9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover no-repeat;
+            color: white;
+            padding: 120px 0;
+            position: relative;
+        }
+        
+        .hero-content {
+            background-color: rgba(0, 61, 113, 0.85);
+            padding: 40px;
+            border-radius: 10px;
+            max-width: 600px;
+        }
+        
+        .card-feature {
+            border-radius: 8px;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .card-feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            color: var(--prosper-green);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-image {
+            height: 180px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .rate-box {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            background-color: white;
+        }
+        
+        .rate-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--prosper-green);
+        }
+        
+        .comparison-table {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .comparison-table th {
+            background-color: var(--prosper-light);
+            font-weight: 600;
+        }
+        
+        .highlight-box {
+            background-color: var(--prosper-light);
+            border-left: 4px solid var(--prosper-green);
+            padding: 20px;
+            border-radius: 4px;
+        }
+        
+        .benefits-image {
+            border-radius: 10px;
+            max-width: 100%;
+            height: auto;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .process-icon {
+            background-color: var(--prosper-light-blue);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+        }
+        
+        footer {
+            background-color: var(--prosper-dark);
+            color: white;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .card-mockup {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="logo.png" alt="MPATELEENG" height="40">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="borrowDropdown">Borrow</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="personal-loans.html">Personal Loans</a></li>
+                            <li><a class="dropdown-item" href="credit-card.html">Credit Card</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="invest.html">Invest</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                    <a href="login.html" class="nav-link me-3">Log In</a>
+                    <a href="signup.html" class="btn btn-mpateleeng">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Professional Hero Banner with Clean Image -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="hero-content">
+                        <h1 class="display-5 fw-bold mb-4">The MPATELEENG Credit Card</h1>
+                        <p class="lead mb-4">No annual fee, cash back rewards, and competitive rates. Checking your eligibility won't affect your credit score.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="#apply" class="btn btn-light btn-lg">Check Your Eligibility</a>
+                            <a href="#card-details" class="btn btn-outline-light btn-lg">Card Details</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <img src="https://images.unsplash.com/photo-1550565118-3a14e8d0386f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="MPATELEENG Credit Card" class="card-mockup">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section with Images -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2>Card Features & Benefits</h2>
+                <p class="lead">Designed to help you spend wisely and earn rewards</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card card-feature">
+                        <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1511&q=80" class="feature-image" alt="Cash Back Rewards">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-percent"></i>
+                            </div>
+                            <h3>Cash Back Rewards</h3>
+                            <p>Earn unlimited 2% cash back on all purchases with no category restrictions or rotating rewards.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-feature">
+                        <img src="https://images.unsplash.com/photo-1604594849809-dfedbc827105?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="feature-image" alt="No Annual Fee">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-ban"></i>
+                            </div>
+                            <h3>No Annual Fee</h3>
+                            <p>Keep more money in your pocket with no annual fee, no hidden costs, and no surprises.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-feature">
+                        <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="feature-image" alt="Mobile App">
+                        <div class="card-body text-center">
+                            <div class="feature-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>Mobile App</h3>
+                            <p>Manage your card, track rewards, and make payments with our easy-to-use mobile app.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rates & Info Section -->
+    <section class="py-5" id="card-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="mb-4">MPATELEENG Credit Card Details</h2>
+                    <p>The MPATELEENG Credit Card offers simple, straightforward rewards with competitive rates and no annual fee. Earn 2% unlimited cash back on every purchase, with no categories to track or limits to worry about.</p>
+                    
+                    <div class="rate-box my-4">
+                        <div class="row">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <div class="text-center">
+                                    <div class="rate-number">2%</div>
+                                    <p>Unlimited cash back on all purchases</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="text-center">
+                                    <div class="rate-number">0%</div>
+                                    <p>Annual fee</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80" alt="Credit Card Benefits" class="benefits-image">
+                    
+                    <h4 class="mt-3">Purchase APR</h4>
+                    <p>Variable APR from 15.99% to 29.99% based on your creditworthiness when you open your account.</p>
+                    
+                    <h4 class="mt-4">Balance Transfers</h4>
+                    <p>Balance transfer fee of 3% or $5, whichever is greater. No introductory APR period.</p>
+                    
+                    <div class="highlight-box mt-4">
+                        <h4><i class="fas fa-shield-alt me-2"></i>Security Features</h4>
+                        <ul>
+                            <li>Zero liability for unauthorized charges</li>
+                            <li>Real-time fraud monitoring</li>
+                            <li>Ability to freeze your card instantly in the app</li>
+                            <li>EMV chip technology</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="sticky-top" style="top: 20px;">
+                        <div class="card shadow-sm mb-4">
+                            <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" class="card-img-top" alt="Credit Card Comparison">
+                            <div class="card-body">
+                                <h3 class="card-title mb-4">Compare Credit Cards</h3>
+                                <div class="table-responsive">
+                                    <table class="table comparison-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Feature</th>
+                                                <th>MPATELEENG Card</th>
+                                                <th>Other Cards</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Annual Fee</td>
+                                                <td><strong>$0</strong></td>
+                                                <td>$0-$95</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cash Back</td>
+                                                <td><strong>2% on everything</strong></td>
+                                                <td>1-5% (with restrictions)</td>
+                                            </tr>
+                                            <tr>
+                                                <td>APR Range</td>
+                                                <td><strong>15.99%-29.99%</strong></td>
+                                                <td>14.99%-29.99%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Foreign Transaction Fee</td>
+                                                <td><strong>0%</strong></td>
+                                                <td>0-3%</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Credit Score Needed</td>
+                                                <td><strong>Good to Excellent</strong></td>
+                                                <td>Fair to Excellent</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="mt-4">
+                                    <h4>Is this card right for you?</h4>
+                                    <p>The MPATELEENG Credit Card is ideal if you want:</p>
+                                    <ul>
+                                        <li>Simple, unlimited cash back with no annual fee</li>
+                                        <li>No rotating categories or sign-ups required</li>
+                                        <li>A straightforward rewards program</li>
+                                        <li>Competitive rates and terms</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Mobile Banking" class="img-fluid rounded mb-4">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works with Images -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">How It Works</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="process-step">
+                        <div class="process-icon">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1584433144859-1fc3ab64a957?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1453&q=80" alt="Check Eligibility" class="img-fluid rounded mb-3" style="height: 150px; width: 100%; object-fit: cover;">
+                        <h4>Check Eligibility</h4>
+                        <p>Complete our simple form to check your eligibility with no impact to your credit score.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="process-step">
+                        <div class="process-icon">
+                            <i class="fas fa-thumbs-up"></i>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Get Approved" class="img-fluid rounded mb-3" style="height: 150px; width: 100%; object-fit: cover;">
+                        <h4>Get Approved</h4>
+                        <p>Receive an instant decision on your application.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="process-step">
+                        <div class="process-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1544377193-33dcf4d68fb5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Receive Card" class="img-fluid rounded mb-3" style="height: 150px; width: 100%; object-fit: cover;">
+                        <h4>Receive Your Card</h4>
+                        <p>Get your card in 7-10 business days and start earning rewards immediately.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application CTA -->
+    <section id="apply" class="py-5" style="background-color: var(--prosper-blue); color: white;">
+        <div class="container text-center">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="mb-4">Ready to Apply?</h2>
+                    <p class="lead mb-4">Checking your eligibility w
